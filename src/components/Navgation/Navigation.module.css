@@ -1,0 +1,16 @@
+
+.conteiner {
+   padding: 20px;
+   margin-left: -30px;
+   color: black;
+}
+
+.list {
+   margin-left: 30px;
+   font-Size: 30px;
+   color: black;
+}
+
+.carrentColor {
+   color: blue;
+}

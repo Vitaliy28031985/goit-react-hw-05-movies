@@ -1,16 +1,25 @@
+
+import { Routes, Route } from 'react-router-dom';
+import {Home} from 'components/Home/Home';
+import {Movies} from 'components/Movies/Movies';
+import {Navigation} from 'components/Navgation/Navigation'
+
+import {fetchTrendingDay} from '../service/api';
+
 export const App = () => {
+
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+   <Navigation/>
+   <Routes>
+<Route  path="/" element={<Home/>}/>
+<Route  path="/movies" element={<Movies/>}/>
+
+
+
+   </Routes>
+   </>
   );
 };
+console.log(fetchTrendingDay());
