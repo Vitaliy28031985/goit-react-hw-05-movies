@@ -19,4 +19,15 @@ return fetch(`${URL}search/movie?api_key=${KEY}&query=${value}`)
    }
 
    return Promise.reject(new Error('Nothing was found for your request'));})   
-}
+};
+
+export const fetchMovie = id => {
+   return fetch(`${URL}movie/${id}?api_key=${KEY}`)
+   .then(response => {
+      if(response.ok) {
+         return response.json();
+      }
+   
+      return Promise.reject(new Error('Nothing was found for your request'));})
+};
+
