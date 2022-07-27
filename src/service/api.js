@@ -8,8 +8,15 @@ export const fetchTrendingDay = () => {
          return response.json();
       }
    
-      return Promise.reject(new Error('Nothing was found for your request'));})
-    
+      return Promise.reject(new Error('Nothing was found for your request'));})   
 };
 
-// console.log(fetchTrendingDay());
+export const fetchValue = value => {
+return fetch(`${URL}search/movie?api_key=${KEY}&query=${value}`)
+.then(response => {
+   if(response.ok) {
+      return response.json();
+   }
+
+   return Promise.reject(new Error('Nothing was found for your request'));})   
+}

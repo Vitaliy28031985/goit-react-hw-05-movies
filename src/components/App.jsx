@@ -4,7 +4,7 @@ import {Home} from 'components/Home/Home';
 import {Movies} from 'components/Movies/Movies';
 import {Navigation} from 'components/Navgation/Navigation'
 
-import {fetchTrendingDay} from '../service/api';
+import {fetchValue} from '../service/api';
 
 export const App = () => {
 
@@ -22,4 +22,4 @@ export const App = () => {
    </>
   );
 };
-console.log(fetchTrendingDay());
+console.log(fetchValue('car'));
