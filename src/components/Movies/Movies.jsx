@@ -2,14 +2,14 @@ import {Form} from '../Form/Form';
 import { useState, useEffect } from 'react';
 import {fetchValue} from '../../service/api';
 import {mapperMoviesTitle} from '../../utils/mapper';
-import { useLocation, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const Movies = () => {
 const [value, setValue] = useState('');
 const [movies, setMovies] = useState([]);
 
-const location = useLocation();
-let url = location.pathname !== '/movies' ? '/movies/' : '';
+// const location = useLocation();
+// let url = location.pathname !== '/movies' ? '/movies/' : ''; useLocation
 
 useEffect(() => {
    if(value !== '') {
@@ -46,7 +46,7 @@ const handleFormSubmit = newValue => {
      <li
      key={id}
      >
-      <NavLink to={`${url}${id}` }>{original_title}</NavLink ></li> 
+      <NavLink to={`${id}` }>{original_title}</NavLink ></li> 
    ))}   
    </ul>
 )}

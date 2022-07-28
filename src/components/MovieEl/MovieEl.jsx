@@ -1,4 +1,4 @@
-import { useParams,  } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {fetchMovie} from '../../service/api';
 
@@ -14,11 +14,11 @@ useEffect(() => {
       [...response.genres])) 
 }, [id]);
 
-
+// console.log(movies);
 const {title, popularity, overview, genres} = movies;
 return (
 <>
-<div>
+<div>{id}
 {/* <img src={posterUrl} alt="" /> */}
 <h1>{title}</h1>
 <p>Popularity: {popularity}</p>
