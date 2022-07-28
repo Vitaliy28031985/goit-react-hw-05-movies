@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import {fetchCast} from '../../service/api';
+// import { useState } from 'react';
+// import {fetchCast} from '../../service/api';
 
 export const Cast = () => {  
-const [movies, setMovies] = useState([]);
+// const [movies, setMovies] = useState([]);
 const {id} = useParams();
 
    // useEffect(() => {
@@ -11,7 +11,7 @@ const {id} = useParams();
    //       [...response.genres])) 
    // }, [id]);
 
-   const {character} = movies
+   // const {character} = movies
 
    return (
 <>
