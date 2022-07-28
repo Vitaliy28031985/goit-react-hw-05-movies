@@ -23,22 +23,26 @@ return fetch(`${URL}search/movie?api_key=${KEY}&query=${value}`)
 
 export const fetchMovie = id => {
    return fetch(`${URL}movie/${id}?api_key=${KEY}`)
-   .then(response => {
-      if(response.ok) {
-         return response.json();
-      }
-      
-      return Promise.reject(new Error('Nothing was found for your request'));})
-   
+   .then(response => response.json())
+   .then(data => {
+   data.genres = data.genres.flatMap(({ name }) => name).join(', ');
+   return data; 
+   })
+  
 };
 
 export const fetchCast = id => {
    return fetch(`${URL}movie/${id}/credits?api_key=${KEY}`)
-   .then(response => {
-      if(response.ok) {
-         return response.json();
-      }
-      
-      return Promise.reject(new Error('Nothing was found for your request'));})
+   .then(response => response.json())
+   .then(data => {
+      return data.cast;
+   });
 };
 
+export const fetchReviews = id => {
+return fetch(`${URL}movie/${id}/reviews?api_key=${KEY}`)
+.then(response => response.json())
+.then(data => {
+   return data.results;
+})
+};

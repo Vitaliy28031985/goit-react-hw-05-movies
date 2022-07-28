@@ -5,13 +5,12 @@ import {fetchMovie} from '../../service/api';
 export const MovieEl = () => {
 const [movies, setMovies] = useState({});
 
-// const posterUrl = `https://image.tmdb.org/t/p/w500${movies.poster_path}`;
+const posterUrl = `https://image.tmdb.org/t/p/w500${movies.poster_path}`;
 
 const {id} = useParams();
 
 useEffect(() => {
-   fetchMovie(id).then(response => setMovies(
-      ...response.genres)) 
+   fetchMovie(id).then(setMovies); 
 }, [id]);
 
 // console.log(movies);
@@ -19,8 +18,8 @@ const {title, popularity, overview, genres} = movies;
 return (
 <>
 
-<div>{id}
-{/* <img src={posterUrl} alt="" /> */}
+<div>
+<img src={posterUrl} alt="" />
 <h1>{title}</h1>
 <p>Popularity: {popularity}</p>
 <h2>Overview</h2>
