@@ -27,7 +27,18 @@ export const fetchMovie = id => {
       if(response.ok) {
          return response.json();
       }
+      
+      return Promise.reject(new Error('Nothing was found for your request'));})
    
+};
+
+export const fetchCast = id => {
+   return fetch(`${URL}movie/${id}/credits?api_key=${KEY}`)
+   .then(response => {
+      if(response.ok) {
+         return response.json();
+      }
+      
       return Promise.reject(new Error('Nothing was found for your request'));})
 };
 
