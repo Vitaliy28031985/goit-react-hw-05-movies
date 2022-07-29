@@ -11,7 +11,6 @@ export const Reviews = () => {
    
       return (
    <>
-   <p>Reviews</p>
    <ul>
       {movies.map(movie => {
          return (
