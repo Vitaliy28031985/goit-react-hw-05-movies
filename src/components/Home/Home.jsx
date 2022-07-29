@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, } from 'react-router-dom';
 import {fetchTrendingDay} from '../../service/api';
 import {mapperMoviesTitle} from '../../utils/mapper';
+import s from './Home.module.css';
 
 export const Home = () => {
    const [movies, setMovies] = useState([]);
+   
 
    useEffect(() => {
       const renderMovies = () => {
@@ -16,15 +18,18 @@ export const Home = () => {
   
    }, []);
 
+  
+
    return (
 <>
-<h1>Trending Today</h1>
+<h2 className={s.text}>Trending Today</h2>
 <ul>
 {movies.map(({id, original_title,}) => (
      <li
+     className={s.link}
      key={id}
      >
-      <NavLink to={`movies/${id}` }>{original_title}</NavLink ></li> 
+      <NavLink to={`movies/${id}`}>{original_title}</NavLink ></li> 
    ))}   
 </ul>
 </>

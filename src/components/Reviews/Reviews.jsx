@@ -11,7 +11,8 @@ export const Reviews = () => {
    
       return (
    <>
-   <ul>
+   {movies.length < 0 ? (
+      <ul>
       {movies.map(movie => {
          return (
             <li
@@ -22,6 +23,12 @@ export const Reviews = () => {
          )
       })}
    </ul>
+   ) : 
+   (
+      <p>Sorry, there are no reviews</p>
+    )
+   }
+   
    </>
       );
    }

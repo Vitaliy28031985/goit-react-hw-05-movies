@@ -1,8 +1,24 @@
 
 .img {
-   margin-top: 20px;
+   margin-top: 50px;
    margin-left: 40px;
    width: 400px;
+}
+
+
+.button {
+   position: absolute;
+   padding: 5px;
+   right: 1720px;
+   bottom: 905px;
+   background-color: black;
+   color: azure;
+   border-radius: 5px;
+}
+
+.button:hover, .button:focus {
+   background-color: azure;
+   color: black;
 }
 
 .infoFilm {
@@ -40,7 +56,12 @@
 .link {
    font-Size: 20px;
    font-weight: 900px;
-   text-decoration: none;
-   color: black;
-   
+   color: black; 
+}
+
+.titleLink {
+   margin-left: 5px;
+   font-Size: 30px;
+   font-weight: 900px;
+   color: black; 
 }

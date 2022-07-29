@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import s from './Form.module.css';
 
 export const Form = ({onSubmit}) => {
 
@@ -24,8 +25,9 @@ const handleSubmit = e => {
    return (
       <>
 <form onSubmit={handleSubmit}>
-<button type="submit">Search</button>
+<button className={s.button} type="submit">Search</button>
 <input
+className={s.input}
 name="value"
 value={value}
 autoComplete="off"
