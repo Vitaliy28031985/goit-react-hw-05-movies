@@ -1,12 +1,12 @@
-import { useParams, Outlet, NavLink, useLocation  } from 'react-router-dom';
+import { useParams, Outlet, NavLink, useNavigate  } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {fetchMovie} from '../../service/api';
 import s from './MovieEl.module.css';
 
 export default function MovieEl()  {
 const [movies, setMovies] = useState({});
-const location = useLocation();
-const [backPath] = useState(location.state?.from ?? '/');
+// const location = useLocation();
+// const [backPath] = useState(location.state?.from ?? '/');useLocation
 
 const posterUrl = `https://image.tmdb.org/t/p/w500${movies.poster_path}`;
 
@@ -16,12 +16,15 @@ useEffect(() => {
    fetchMovie(id).then(setMovies); 
 }, [id]);
 
+const navigate = useNavigate();
+  const goBack = () => navigate(-1);
 
 const {title, popularity, overview, genres} = movies;
 return (
 <>
 <div>
-<NavLink className={s.button} to={backPath}>Go back</NavLink>
+   <button className={s.button} onClick={goBack}>Go back</button>
+{/* <NavLink className={s.button} to={backPath}>Go back</NavLink> */}
 {movies.poster_path === null ? (<img className={s.img} src="https://via.placeholder.com/250x200" alt={title}/>) : (<img className={s.img} src={posterUrl} alt={title} />)}
 
 <div className={s.infoFilm}>

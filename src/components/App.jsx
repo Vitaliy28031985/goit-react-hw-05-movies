@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import {Navigation} from 'components/Navgation/Navigation';
-// import {Loader} from 'components/Loader/Loader';
+// import {LoaderComponent} from 'components/Loader/Loader';
 
 const Home = lazy(() => import('components/Home/Home' /* webpackChunkName: "Home" */));
 const Movies = lazy(() => import('components/Movies/Movies' /* webpackChunkName: "Movies" */));
@@ -12,9 +12,9 @@ const Cast = lazy(() => import('components/Cast/Cast' /* webpackChunkName: "Cast
 const Reviews = lazy(() => import('components/Reviews/Reviews' /* webpackChunkName: "Reviews" */));
 const NoPage = lazy(() => import('components/NoPage/NoPage' /* webpackChunkName: "NoPage" */));
 
-// const Loader = lazy(() => import('components/Loader/Loader' /* webpackChunkName: "Loader" */));
+// const LoaderComponent = lazy(() => import('components/Loader/Loader' /* webpackChunkName: "Loader" */));
 
-
+//<LoaderComponent/>
 
 export const App = () => {
 
@@ -24,6 +24,7 @@ export const App = () => {
    <Navigation/>
 <Suspense fallback={<p>Loder...</p>}>
 <Routes>
+
 <Route  path="/" element={<Home/>}/>
 <Route  path="/movies" element={<Movies/>}/>
 <Route path="/movies/:id" element={<MovieEl />}>
