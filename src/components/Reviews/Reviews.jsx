@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {fetchReviews} from '../../service/api';
+import s from './Reviews.module.css';
 
-export const Reviews = () => {  
+export default function Reviews() {  
    const [movies, setMovies] = useState([]);
    const {id} = useParams();
    useEffect(() => {
@@ -11,8 +12,8 @@ export const Reviews = () => {
    
       return (
    <>
-   {movies.length < 0 ? (
-      <ul>
+   {movies.length > 0 ? (
+      <ul className={s.list}>
       {movies.map(movie => {
          return (
             <li
@@ -25,10 +26,11 @@ export const Reviews = () => {
    </ul>
    ) : 
    (
-      <p>Sorry, there are no reviews</p>
+      <p className={s.list}>Sorry, there are no reviews</p>
     )
    }
    
    </>
       );
    }
+  

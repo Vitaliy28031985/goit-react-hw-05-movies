@@ -1,5 +1,5 @@
 
-export const NoPage = () => {
+export default function NoPage() {
 return (
    <div>
       <p

@@ -4,7 +4,7 @@ import {fetchTrendingDay} from '../../service/api';
 import {mapperMoviesTitle} from '../../utils/mapper';
 import s from './Home.module.css';
 
-export const Home = () => {
+export default function Home() {
    const [movies, setMovies] = useState([]);
    
 
@@ -24,12 +24,12 @@ export const Home = () => {
 <>
 <h2 className={s.text}>Trending Today</h2>
 <ul>
-{movies.map(({id, original_title,}) => (
+{movies.map(({id, title,}) => (
      <li
      className={s.link}
      key={id}
      >
-      <NavLink to={`movies/${id}`}>{original_title}</NavLink ></li> 
+      <NavLink to={`movies/${id}`}>{title}</NavLink ></li> 
    ))}   
 </ul>
 </>

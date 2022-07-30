@@ -1,8 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {fetchCast} from '../../service/api';
+import s from './Cast.module.css';
 
-export const Cast = () => {  
+export default function Cast() {  
 const [movies, setMovies] = useState([]);
 const {id} = useParams();
 
@@ -13,7 +14,7 @@ const {id} = useParams();
 
    return (
 
-<ul>
+<ul className={s.list}>
    {movies.map(movie => {
      return (
       <li
@@ -29,3 +30,4 @@ const {id} = useParams();
    );
 }
 
+ //Cast.module.css

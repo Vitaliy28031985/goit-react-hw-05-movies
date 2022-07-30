@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import {fetchMovie} from '../../service/api';
 import s from './MovieEl.module.css';
 
-export const MovieEl = () => {
+export default function MovieEl()  {
 const [movies, setMovies] = useState({});
 const location = useLocation();
 const [backPath] = useState(location.state?.from ?? '/');

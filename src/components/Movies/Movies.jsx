@@ -5,7 +5,7 @@ import {mapperMoviesTitle} from '../../utils/mapper';
 import { NavLink, useLocation } from 'react-router-dom';
 import s from './Movies.module.css';
 
-export const Movies = () => {
+export default function Movies() {
 const [value, setValue] = useState('');
 const [movies, setMovies] = useState([]);
 
@@ -44,12 +44,12 @@ const handleFormSubmit = newValue => {
 <Form onSubmit={handleFormSubmit}/>
 {movies && (
    <ul>
-   {movies.map(({id, original_title,}) => (
+   {movies.map(({id, title,}) => (
      <li
      className={s.link}
      key={id}
      >
-      <NavLink to={`${url}${id}`}>{original_title}</NavLink ></li> 
+      <NavLink to={`${url}${id}`}>{title}</NavLink ></li> 
    ))}   
    </ul>
 )}
