@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/Reviews.f74f9ab9.chunk.css","mappings":"AACA,qBACG,gBACH","sources":["components/Reviews/Reviews.module.css"],"sourcesContent":["\n.list {\n   margin-left: 40px;\n}"],"names":[],"sourceRoot":""}

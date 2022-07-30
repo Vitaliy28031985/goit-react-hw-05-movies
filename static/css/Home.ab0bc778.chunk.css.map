@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/Home.ab0bc778.chunk.css","mappings":"AAAA,kBACG,gBACH,CAEA,kBAEG,cAAe,CADf,gBAEH","sources":["components/Home/Home.module.css"],"sourcesContent":[".text {\n   margin-left: 50px;\n}\n\n.link {\n   margin-left: 30px;\n   font-Size: 20px;\n}"],"names":[],"sourceRoot":""}
