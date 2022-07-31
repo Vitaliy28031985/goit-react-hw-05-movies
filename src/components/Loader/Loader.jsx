@@ -1,18 +1,24 @@
-import { BallTriangle } from 'react-loader-spinner';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import { useState, CSSProperties } from "react";
+import ClipLoader from "react-spinners/ClipLoader";
+
+
 
 export default function LoaderComponent() {
+
+  const override: 
+    CSSProperties = {
+    display: "block",
+    margin: "0 auto",
+    borderColor: "blue",
+  };
+
+  let [loading] = useState(true);
+  let [color] = useState("#ffffff");
+
   return (
-    <div className="loader" 
-    style={{
-      height: '5vh',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      fontSize: 40,
-      color: '#010101'
-    }}>
-    <BallTriangle height="100" width="100" color="#3f51b5" ariaLabel="loading" />
+    <div>
+   <ClipLoader color={color} loading={loading} cssOverride={override} size={150} />
+   
   </div>
   );   
 };

@@ -11,9 +11,9 @@ const MovieEl = lazy(() => import('components/MovieEl/MovieEl' /* webpackChunkNa
 const Cast = lazy(() => import('components/Cast/Cast' /* webpackChunkName: "Cast" */));
 const Reviews = lazy(() => import('components/Reviews/Reviews' /* webpackChunkName: "Reviews" */));
 const NoPage = lazy(() => import('components/NoPage/NoPage' /* webpackChunkName: "NoPage" */));
-// const LoaderComponent = lazy(() => import('components/Loader/Loader' /* webpackChunkName: "Loader" */));
+const LoaderComponent = lazy(() => import('components/Loader/Loader' /* webpackChunkName: "Loader" */));
 
-<p>Loder...</p>
+
 
 //<LoaderComponent/> <p>Loder...</p> 
 
@@ -23,7 +23,7 @@ export const App = () => {
     <>
  
 <Navigation/>
-<Suspense fallback={<p>Loder...</p>}>
+<Suspense fallback={<LoaderComponent/>}>
 <Routes>
 <Route  path="/" element={<Home/>}/>
 <Route  path="/movies" element={<Movies/>}/>
