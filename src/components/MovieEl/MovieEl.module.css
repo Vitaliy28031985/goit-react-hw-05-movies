@@ -1,16 +1,18 @@
 
 .img {
-   margin-top: 50px;
+   margin-top: 20px;
    margin-left: 40px;
    width: 400px;
 }
 
 
 .button {
-   position: absolute;
+  
    padding: 5px;
-   right: 1720px;
+   left: 20px;
    bottom: 905px;
+   margin-left: 20px;
+   margin-top: 10px;
    text-decoration: none;
    background-color: black;
    color: azure;

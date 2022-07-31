@@ -9,12 +9,8 @@ export default function Movies() {
 const [value, setValue] = useState('');
 const [movies, setMovies] = useState([]);
 
-
 const location = useLocation();
 let url = location.pathname !== '/movies' ? '/movies/' : '';
-
-
-
 
 useEffect(() => {
    if(value !== '') {
@@ -49,7 +45,7 @@ const handleFormSubmit = newValue => {
      className={s.link}
      key={id}
      >
-      <NavLink to={`${url}${id}`}>{title}</NavLink ></li> 
+      <NavLink to={`${url}${id}`} state={{ from: location}}>{title}</NavLink ></li> 
    ))}   
    </ul>
 )}
