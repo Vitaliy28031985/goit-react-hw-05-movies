@@ -2,43 +2,50 @@ import {Form} from '../Form/Form';
 import { useState, useEffect } from 'react';
 import {fetchValue} from '../../service/api';
 import {mapperMoviesTitle} from '../../utils/mapper';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useSearchParams } from 'react-router-dom';
 import s from './Movies.module.css';
 
 export default function Movies() {
-const [value, setValue] = useState('');
+const [searchParams, setSearchParams] = useSearchParams();
+const query = searchParams.get('query') ?? '';
 const [movies, setMovies] = useState([]);
+
 
 const location = useLocation();
 let url = location.pathname !== '/movies' ? '/movies/' : '';
 
 useEffect(() => {
-   if(value !== '') {
-      renderMovies(value); 
+   if(query !== '') {
+      renderMovies(query); 
    }
-}, [value]);
+}, [query]);
 
 
-const renderMovies = (value) => {
-   fetchValue(value).then(response => setMovies(
+const renderMovies = (query) => {
+   fetchValue(query).then(response => setMovies(
  [...mapperMoviesTitle(response.results)]
    )) 
 };
 
-const handleFormSubmit = newValue => {
-   if(newValue === value) {
-      return;
-   }
-   setValue(newValue);
-   setMovies([]);
-
+const handleFormSubmit = query => {
+   setSearchParams({ query });
 }
+
+// const handleFormSubmit = newValue => {
+//    if(newValue === value) {
+//       return;
+//    }
+//    setValue(newValue);
+//    setMovies([]);
+
+// }
 
    return (
       <>
+
 <h2 className={s.text}>Enter your request</h2>
 <Form onSubmit={handleFormSubmit}/>
-{movies && (
+{movies.length > 0 && (
    <ul>
    {movies.map(({id, title,}) => (
      <li

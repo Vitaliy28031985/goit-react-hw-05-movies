@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import {fetchMovie} from '../../service/api';
 import s from './MovieEl.module.css';
 
-export default function MovieEl()  {
+export default function MovieDetails()  {
 const [movies, setMovies] = useState({});
 const location = useLocation();
 const navigate = useNavigate();
