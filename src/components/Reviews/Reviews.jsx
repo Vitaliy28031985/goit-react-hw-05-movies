@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {fetchReviews} from '../../service/api';
@@ -33,4 +34,12 @@ export default function Reviews() {
    </>
       );
    }
-  
+   Reviews.propTypes = {
+      reviews: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          author: PropTypes.string.isRequired,
+          content: PropTypes.string.isRequired,
+        })
+      ),
+    };

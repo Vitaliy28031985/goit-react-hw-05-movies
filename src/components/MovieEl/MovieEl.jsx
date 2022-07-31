@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useParams, Outlet, NavLink, useNavigate, useLocation  } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {fetchMovie} from '../../service/api';
@@ -18,7 +19,7 @@ useEffect(() => {
 
 
 const navigateButton = () => {
-   navigate(location?.state?.from ?? '/')
+   navigate(location?.state?.from ?? navigate(-1))
 }
 
 const {title, popularity, overview, genres} = movies;
@@ -52,7 +53,14 @@ return (
 
 };
 
-//{/* <NavLink className={s.button} to={backPath}>Go back</NavLink> */}
-
-// const navigate = useNavigate();
-//   const goBack = () => navigate(-1);
+MovieDetails.propTypes = {
+   movie: PropTypes.objectOf(
+     PropTypes.shape({
+       title: PropTypes.string.isRequired,
+       popularity: PropTypes.number.isRequired,
+       overview: PropTypes.string.isRequired,
+       genres: PropTypes.string.isRequired,
+       poster_path: PropTypes.string.isRequired,
+     })
+   ),
+ };

@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import {Container} from 'components/Container/Container';
 
 import {Navigation} from 'components/Navgation/Navigation';
 // import {LoaderComponent} from 'components/Loader/Loader';
@@ -20,8 +21,8 @@ const LoaderComponent = lazy(() => import('components/Loader/Loader' /* webpackC
 export const App = () => {
 
   return (
-    <>
- 
+  
+ <Container>
 <Navigation/>
 <Suspense fallback={<LoaderComponent/>}>
 <Routes>
@@ -33,7 +34,8 @@ export const App = () => {
 </Route>
 <Route path="*" element={<NoPage />} />
    </Routes>
-   </Suspense> 
-   </>
+   </Suspense>
+   </Container>
+   
   );
 };

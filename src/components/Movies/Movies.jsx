@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {Form} from '../Form/Form';
 import { useState, useEffect } from 'react';
 import {fetchValue} from '../../service/api';
@@ -31,14 +32,6 @@ const handleFormSubmit = query => {
    setSearchParams({ query });
 }
 
-// const handleFormSubmit = newValue => {
-//    if(newValue === value) {
-//       return;
-//    }
-//    setValue(newValue);
-//    setMovies([]);
-
-// }
 
    return (
       <>
@@ -60,3 +53,12 @@ const handleFormSubmit = query => {
 </>
    );
 }
+
+Movies.propTypes = {
+   movies: PropTypes.arrayOf(
+     PropTypes.shape({
+       id: PropTypes.number.isRequired,
+       title: PropTypes.string.isRequired,
+     })
+   ),
+ };
