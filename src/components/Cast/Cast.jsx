@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import {fetchCast} from '../../service/api';
 import s from './Cast.module.css';
 
+
 export default function Cast() {  
 const [movies, setMovies] = useState([]);
 const {id} = useParams();
@@ -12,6 +13,8 @@ const {id} = useParams();
       fetchCast(id).then(setMovies); 
    }, [id]);
    const posterUrl = `https://image.tmdb.org/t/p/w200`;
+
+
 
    return (
 

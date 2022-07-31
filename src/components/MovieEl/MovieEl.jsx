@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react';
 import {fetchMovie} from '../../service/api';
 import s from './MovieEl.module.css';
 
+
 export default function MovieDetails()  {
 const [movies, setMovies] = useState({});
 const location = useLocation();
 const navigate = useNavigate();
 
-const posterUrl = `https://image.tmdb.org/t/p/w500${movies.poster_path}`;
+
 
 const {id} = useParams();
 
@@ -17,26 +18,27 @@ useEffect(() => {
    fetchMovie(id).then(setMovies); 
 }, [id]);
 
+const posterUrl = `https://image.tmdb.org/t/p/w500`;
 
 const navigateButton = () => {
    navigate(location?.state?.from ?? navigate(-1))
 }
 
-const {title, popularity, overview, genres} = movies;
-return (
-<>
 
+return (
+
+<>
 <button className={s.button}  onClick={navigateButton}>Go back</button>
 <div>
-{movies.poster_path === null ? (<img className={s.img} src="https://via.placeholder.com/250x200" alt={title}/>) : (<img className={s.img} src={posterUrl} alt={title} />)}
+{movies.poster_path === null ? (<img className={s.img} src="https://via.placeholder.com/250x200" alt={movies.title}/>) : (<img className={s.img} src={`${posterUrl}${movies.poster_path}`} alt={movies.title} />)}
 
 <div className={s.infoFilm}>
-<h2 className={s.title}>{title}</h2>
-<p className={s.titleText}>Popularity: <span className={s.text}>{popularity}</span></p>
+<h2 className={s.title}>{movies.title}</h2>
+<p className={s.titleText}>Popularity: <span className={s.text}>{movies.popularity}</span></p>
 <h2 className={s.titleText}>Overview</h2>
-<p className={s.text}>{overview}</p>
+<p className={s.text}>{movies.overview}</p>
 <h3 className={s.titleText}>Genres</h3>
-<p className={s.text}>{genres}</p>
+<p className={s.text}>{movies.genres}</p>
 </div>
 <div className={s.linkConteiner}>
    <ul>

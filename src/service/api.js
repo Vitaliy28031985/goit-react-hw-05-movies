@@ -1,4 +1,6 @@
-
+import {mapperCast} from '../utils/mapper';
+import {mapperReviews} from '../utils/mapper';
+// import {mapperMovieEl} from '../utils/mapper';
 const URL = 'https://api.themoviedb.org/3/';
 const KEY = 'da16a0fca1d07603f8ad5b63eb5e61b5';
 
@@ -27,7 +29,7 @@ export const fetchMovie = id => {
    .then(response => response.json())
    .then(data => { 
    data.genres = data.genres.flatMap(({ name }) => name).join(', ');
-   return data;  
+   return data; 
     
    })
   
@@ -37,7 +39,7 @@ export const fetchCast = id => {
    return fetch(`${URL}movie/${id}/credits?api_key=${KEY}`)
    .then(response => response.json())
    .then(data => {
-      return data.cast;
+      return mapperCast(data.cast);
    });
 };
 
@@ -45,6 +47,6 @@ export const fetchReviews = id => {
 return fetch(`${URL}movie/${id}/reviews?api_key=${KEY}`)
 .then(response => response.json())
 .then(data => {
-   return data.results;
+   return mapperReviews(data.results);
 })
 };
