@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useParams, Outlet, NavLink, useNavigate, useLocation  } from 'react-router-dom';
+import { useParams, Outlet, NavLink, useLocation  } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import {fetchMovie} from '../../service/api';
 import s from './MovieEl.module.css';
@@ -8,7 +8,7 @@ import s from './MovieEl.module.css';
 export default function MovieDetails()  {
 const [movies, setMovies] = useState({});
 const location = useLocation();
-const navigate = useNavigate();
+
 
 
 
@@ -20,15 +20,15 @@ useEffect(() => {
 
 const posterUrl = `https://image.tmdb.org/t/p/w500`;
 
-const navigateButton = () => {
-   navigate(location?.state?.from ?? navigate('/goit-react-hw-05-movies'))
-}
+
+const [backBack] = useState(location.state?.from ?? '/goit-react-hw-05-movies');
 
 
 return (
 
 <>
-<button className={s.button}  onClick={navigateButton}>Go back</button>
+<NavLink className={s.button} to={backBack}>Go back</NavLink>
+
 <div>
 {movies.poster_path === null ? (<img className={s.img} src="https://via.placeholder.com/250x200" alt={movies.title}/>) : (<img className={s.img} src={`${posterUrl}${movies.poster_path}`} alt={movies.title} />)}
 

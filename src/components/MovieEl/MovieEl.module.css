@@ -9,10 +9,10 @@
 .button {
   
    padding: 5px;
+display:inline-block;
    left: 20px;
-   bottom: 905px;
-   margin-left: 20px;
-   margin-top: 10px;
+   margin-left: 10px;
+   margin-top: 20px;
    text-decoration: none;
    background-color: black;
    color: azure;
