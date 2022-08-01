@@ -18,7 +18,7 @@ useEffect(() => {
    fetchMovie(id).then(setMovies); 
 }, [id]);
 
-const posterUrl = `https://image.tmdb.org/t/p/w500`;
+const posterUrl = 'https://image.tmdb.org/t/p/w500';
 
 
 const [backBack] = useState(location.state?.from ?? '/goit-react-hw-05-movies');

@@ -27,11 +27,18 @@ return fetch(`${URL}search/movie?api_key=${KEY}&query=${value}`)
 export const fetchMovie = id => {
    return fetch(`${URL}movie/${id}?api_key=${KEY}`)
    .then(response => response.json())
-   .then(data => { 
-   data.genres = data.genres.flatMap(({ name }) => name).join(', ');
-   return data; 
+   .then(data => {
+      const muvie = {
+        title: data.title,
+        popularity: data.popularity,
+        overview: data.overview,
+        genres: data.genres.flatMap(({ name }) => name).join(', '),
+        poster_path: data.poster_path,
+      };
+      return muvie;
+    });
     
-   })
+  
   
 };
 
