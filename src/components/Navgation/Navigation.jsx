@@ -6,7 +6,7 @@ export const Navigation = () => {
    return (
    <nav className={s.conteiner}>
    <NavLink className={({ isActive }) =>
-   `${s.list}` + (isActive ? ` ${s.carrentColor}` : '')} to='/'>Home</NavLink>
+   `${s.list}` + (isActive ? ` ${s.carrentColor}` : '')} to='/goit-react-hw-05-movies'>Home</NavLink>
    <NavLink className={({ isActive }) =>
    `${s.list}` + (isActive ? ` ${s.carrentColor}` : '')} to='/movies'>Movies</NavLink>
   </nav>

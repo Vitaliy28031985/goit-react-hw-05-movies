@@ -13,7 +13,7 @@ const [movies, setMovies] = useState([]);
 
 
 const location = useLocation();
-let url = location.pathname !== '/movies' ? '/movies/' : '';
+let url = location.pathname !== '/goit-react-hw-05-movies/movies' ? '/goit-react-hw-05-movies/movies/' : '';
 
 useEffect(() => {
    if(query !== '') {

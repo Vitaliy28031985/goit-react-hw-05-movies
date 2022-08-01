@@ -16,8 +16,6 @@ const LoaderComponent = lazy(() => import('components/Loader/Loader' /* webpackC
 
 
 
-//<LoaderComponent/> <p>Loder...</p> 
-
 export const App = () => {
 
   return (
@@ -26,9 +24,9 @@ export const App = () => {
 <Navigation/>
 <Suspense fallback={<LoaderComponent/>}>
 <Routes>
-<Route  path="/" element={<Home/>}/>
+<Route  path="/goit-react-hw-05-movies" element={<Home/>}/>
 <Route  path="/movies" element={<Movies/>}/>
-<Route path="/movies/:id" element={<MovieDetails />}>
+<Route path="/goit-react-hw-05-movies/movies/:id" element={<MovieDetails />}>
 <Route path="cast:id" element={<Cast/>}/>
 <Route path="reviews:id" element={<Reviews/>}/>
 </Route>
