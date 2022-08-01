@@ -21,7 +21,7 @@ useEffect(() => {
 const posterUrl = `https://image.tmdb.org/t/p/w500`;
 
 const navigateButton = () => {
-   navigate(location?.state?.from ?? navigate(-1))
+   navigate(location?.state?.from ?? navigate('/goit-react-hw-05-movies'))
 }
 
 
