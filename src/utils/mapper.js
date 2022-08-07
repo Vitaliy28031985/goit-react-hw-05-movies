@@ -16,17 +16,7 @@ export const  mapperMoviesTitle = (movies) => {
       }));
       };  
 
-      export const mapperMovieEl = (movies) => {
-         return movies.map(({ title, popularity, overview, genres, poster_path}) =>
-         ({
-           genres,
-           title,
-           popularity,
-           overview,
-           poster_path: `https://image.tmdb.org/t/p/w500${poster_path}`, 
-         }));
-         };  
-
+  
          export const mapperReviews = (movies) => {
             return movies.map(({ id, author, content,}) =>
             ({

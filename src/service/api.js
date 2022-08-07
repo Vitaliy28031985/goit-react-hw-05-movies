@@ -1,6 +1,5 @@
 import {mapperCast} from '../utils/mapper';
 import {mapperReviews} from '../utils/mapper';
-// import {mapperMovieEl} from '../utils/mapper';
 const URL = 'https://api.themoviedb.org/3/';
 const KEY = 'da16a0fca1d07603f8ad5b63eb5e61b5';
 

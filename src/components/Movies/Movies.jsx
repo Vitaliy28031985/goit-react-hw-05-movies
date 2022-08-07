@@ -3,7 +3,7 @@ import {Form} from '../Form/Form';
 import { useState, useEffect } from 'react';
 import {fetchValue} from '../../service/api';
 import {mapperMoviesTitle} from '../../utils/mapper';
-import { NavLink, useLocation, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import s from './Movies.module.css';
 
 export default function Movies() {
@@ -45,7 +45,7 @@ const handleFormSubmit = query => {
      className={s.link}
      key={id}
      >
-      <NavLink to={`${url}${id}`} state={{ from: location}}>{title}</NavLink ></li> 
+      <Link to={`${url}${id}`} state={{ from: location}}>{title}</Link ></li> 
    ))}   
    </ul>
 )}

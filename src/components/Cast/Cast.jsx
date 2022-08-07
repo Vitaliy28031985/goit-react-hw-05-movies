@@ -18,7 +18,7 @@ const {id} = useParams();
 
    return (
 
-<ul className={s.list}>
+      <ul className={s.list}>
    {movies.map(movie => {
      return (
       <li
@@ -30,7 +30,6 @@ const {id} = useParams();
     </li> )
    })}
 </ul>
-
    );
 }
 
